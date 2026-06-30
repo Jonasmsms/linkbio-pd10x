@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonas — Links</title>
+<style>
+@font-face{font-family:'Orbitron';font-style:normal;font-weight:700;font-display:swap;src:url(https://jonasmsms.github.io/mpd10x/fonts/orbitron-700.woff2) format('woff2')}
+@font-face{font-family:'Orbitron';font-style:normal;font-weight:900;font-display:swap;src:url(https://jonasmsms.github.io/mpd10x/fonts/orbitron-900.woff2) format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url(https://jonasmsms.github.io/mpd10x/fonts/barlow-400.woff2) format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:swap;src:url(https://jonasmsms.github.io/mpd10x/fonts/barlow-600.woff2) format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:700;font-display:swap;src:url(https://jonasmsms.github.io/mpd10x/fonts/barlow-700.woff2) format('woff2')}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080809;--panel:#101012;
+  --fire:#FF5500;--fire2:#FF7733;
+  --white:#F0F0F2;--mid:#A0A0A8;
+  --lb:rgba(255,85,0,.22);
+}
+body{
+  background:var(--bg);color:var(--white);
+  font-family:'Barlow',system-ui,sans-serif;font-weight:400;
+  min-height:100vh;
+  padding:clamp(28px,7vw,48px) clamp(16px,5vw,20px) 60px;
+}
+.wrap{max-width:480px;margin:0 auto}
+
+/* Header */
+.header{text-align:center;margin-bottom:clamp(28px,6vw,40px)}
+.avatar{
+  width:92px;height:92px;border-radius:50%;
+  margin:0 auto 16px;
+  border:2px solid var(--fire);
+  box-shadow:0 0 24px rgba(255,85,0,.35);
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#1a1a1d,#0a0a0b);
+  font-family:'Orbitron',sans-serif;font-weight:900;
+  font-size:.62rem;color:var(--fire);text-align:center;
+  letter-spacing:.05em;
+}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.header h1{
+  font-family:'Orbitron',sans-serif;font-weight:900;
+  font-size:clamp(1.1rem,4vw,1.35rem);
+  text-transform:uppercase;letter-spacing:.02em;
+  margin-bottom:6px;
+}
+.header h1 span{color:var(--fire)}
+.header p{
+  font-size:clamp(.82rem,2.2vw,.9rem);
+  color:var(--mid);font-weight:400;
+}
+
+/* Card */
+.card{
+  background:var(--panel);
+  border:1px solid var(--lb);
+  border-radius:14px;
+  padding:clamp(18px,4.5vw,24px);
+  margin-bottom:clamp(16px,4vw,20px);
+  position:relative;
+  overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(255,85,0,.05),transparent);
+  pointer-events:none;
+}
+
+.card-img{
+  width:100%;aspect-ratio:16/10;
+  border-radius:10px;overflow:hidden;
+  margin-bottom:16px;
+  position:relative;
+  background:linear-gradient(135deg,#1c1c1f,#0d0d0e);
+  border:1px dashed rgba(255,85,0,.3);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:6px;
+}
+.card-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.card-img .ph-icon{font-size:1.8rem;opacity:.4}
+.card-img .ph-txt{
+  font-size:.68rem;color:rgba(255,255,255,.35);
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+}
+
+.card-tag{
+  font-family:'Barlow',sans-serif;font-size:.62rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--fire);margin-bottom:8px;
+  display:flex;align-items:center;gap:8px;
+}
+.card-tag::before{content:'';width:12px;height:1.5px;background:var(--fire);box-shadow:0 0 6px var(--fire)}
+
+.card h2{
+  font-family:'Orbitron',sans-serif;font-weight:900;
+  font-size:clamp(1.15rem,4vw,1.4rem);
+  text-transform:uppercase;line-height:1.05;
+  margin-bottom:10px;letter-spacing:.01em;
+}
+.card h2 b{color:var(--fire)}
+
+.card p{
+  font-size:clamp(.86rem,2.2vw,.94rem);
+  color:#C8CAD4;font-weight:400;line-height:1.55;
+  margin-bottom:18px;
+}
+.card p b{color:var(--white);font-weight:600}
+
+/* Botão com gradiente animado */
+.btn{
+  display:block;width:100%;
+  font-family:'Barlow',sans-serif;font-weight:700;
+  font-size:clamp(.92rem,2.5vw,1rem);
+  text-align:center;color:#fff;
+  padding:clamp(14px,3.5vw,17px) 20px;
+  border-radius:9px;border:none;cursor:pointer;
+  position:relative;overflow:hidden;
+  text-decoration:none;
+  background:linear-gradient(270deg,var(--fire),#FF8855,var(--fire2),var(--fire));
+  background-size:300% 100%;
+  animation:gradientMove 4s ease infinite;
+  box-shadow:0 4px 24px rgba(255,85,0,.3);
+  letter-spacing:.01em;
+}
+.btn:active{transform:scale(.98)}
+@keyframes gradientMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Variante de cor — para diferenciar ofertas */
+.btn.alt{
+  background:linear-gradient(270deg,#22c55e,#4ade80,#16a34a,#22c55e);
+  background-size:300% 100%;
+  animation:gradientMove 4s ease infinite;
+  box-shadow:0 4px 24px rgba(34,197,94,.3);
+}
+.card.alt .card-tag{color:#22c55e}
+.card.alt .card-tag::before{background:#22c55e;box-shadow:0 0 6px #22c55e}
+.card.alt h2 b{color:#22c55e}
+.card.alt{border-color:rgba(34,197,94,.22)}
+.card.alt .card-img{border-color:rgba(34,197,94,.3)}
+
+/* Footer */
+.footer{
+  text-align:center;margin-top:32px;
+  font-size:.72rem;color:rgba(255,255,255,.35);
+}
+.footer a{color:var(--fire);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="avatar">FOTO<br>PERFIL</div>
+    <h1>Jonas <span>// PD10X</span></h1>
+    <p>Tráfego pago para delivery — escolha por onde começar</p>
+  </div>
+
+  <!-- CARD 1 — Oferta principal (laranja) -->
+  <div class="card">
+    <div class="card-img">
+      <span class="ph-icon">🖼️</span>
+      <span class="ph-txt">Imagem do card 1</span>
+    </div>
+    <div class="card-tag">Mais vendido</div>
+    <h2>Método <b>PD10X</b></h2>
+    <p>O sistema completo de tráfego pago para deliveries: do zero à escala, campanhas, públicos e análises que geram pedidos todos os dias.</p>
+    <a href="#" class="btn">Quero o Método PD10X</a>
+  </div>
+
+  <!-- CARD 2 — Verde (variante) -->
+  <div class="card alt">
+    <div class="card-img">
+      <span class="ph-icon">🖼️</span>
+      <span class="ph-txt">Imagem do card 2</span>
+    </div>
+    <div class="card-tag">Comunidade</div>
+    <h2>Grupo <b>VIP</b></h2>
+    <p>Entre na comunidade exclusiva de gestores de delivery e tenha acesso a conteúdos semanais e suporte direto.</p>
+    <a href="#" class="btn alt">Entrar na comunidade</a>
+  </div>
+
+  <!-- CARD 3 — Laranja -->
+  <div class="card">
+    <div class="card-img">
+      <span class="ph-icon">🖼️</span>
+      <span class="ph-txt">Imagem do card 3</span>
+    </div>
+    <div class="card-tag">Conteúdo gratuito</div>
+    <h2>Aula <b>Gratuita</b></h2>
+    <p>Assista à aula completa e entenda como aplicar a estratégia de tráfego no seu delivery ainda essa semana.</p>
+    <a href="#" class="btn">Assistir aula grátis</a>
+  </div>
+
+  <!-- CARD 4 — Verde -->
+  <div class="card alt">
+    <div class="card-img">
+      <span class="ph-icon">🖼️</span>
+      <span class="ph-txt">Imagem do card 4</span>
+    </div>
+    <div class="card-tag">Redes sociais</div>
+    <h2>Me siga no <b>Instagram</b></h2>
+    <p>Conteúdo diário sobre tráfego pago, gestão de delivery e bastidores do método.</p>
+    <a href="#" class="btn alt">Seguir no Instagram</a>
+  </div>
+
+  <div class="footer">
+    © 2026 PD10X · <a href="#">Política de privacidade</a>
+  </div>
+
+</div>
+</body>
+</html>
