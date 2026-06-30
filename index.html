@@ -54,14 +54,39 @@ body{
 }
 
 /* Card */
+.card-wrap{
+  position:relative;
+  border-radius:15px;
+  padding:1px;
+  margin-bottom:clamp(18px,4.5vw,24px);
+  background:linear-gradient(135deg,rgba(255,85,0,.5),rgba(255,85,0,.05) 40%,rgba(255,255,255,.05) 60%,rgba(255,85,0,.3));
+  overflow:hidden;
+}
+.card-wrap::before{
+  content:'';
+  position:absolute;
+  inset:-60%;
+  background:conic-gradient(from 0deg,transparent 0deg,rgba(255,85,0,.6) 40deg,transparent 80deg);
+  animation:spinLight 4s linear infinite;
+  border-radius:50%;
+}
+.card-wrap.alt{
+  background:linear-gradient(135deg,rgba(34,197,94,.5),rgba(34,197,94,.05) 40%,rgba(255,255,255,.05) 60%,rgba(34,197,94,.3));
+}
+.card-wrap.alt::before{
+  background:conic-gradient(from 0deg,transparent 0deg,rgba(34,197,94,.6) 40deg,transparent 80deg);
+}
+@keyframes spinLight{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
 .card{
   background:var(--panel);
-  border:1px solid var(--lb);
   border-radius:14px;
   padding:clamp(18px,4.5vw,24px);
-  margin-bottom:clamp(16px,4vw,20px);
   position:relative;
   overflow:hidden;
+  z-index:1;
 }
 .card::before{
   content:'';position:absolute;inset:0;
@@ -187,6 +212,7 @@ body{
   </div>
 
   <!-- CARD 1 — Método PD10X (entrada) -->
+  <div class="card-wrap">
   <div class="card">
     <div class="card-img">
       <img src="pd10x-card.jpg" alt="Método PD10X" loading="lazy">
@@ -196,8 +222,10 @@ body{
     <p>O sistema completo de tráfego pago para deliveries: do zero à escala, campanhas, públicos e análises que geram pedidos todos os dias.</p>
     <a href="https://www.deliverylucrativopd10x.shop/" class="btn">Quero o Método PD10X</a>
   </div>
+  </div>
 
   <!-- CARD 2 — Raio-X Delivery -->
+  <div class="card-wrap">
   <div class="card">
     <div class="card-img">
       <span class="ph-icon">🖼️</span>
@@ -208,8 +236,10 @@ body{
     <p>Descubra exatamente o que está travando o crescimento do seu delivery com uma análise completa do seu negócio.</p>
     <a href="https://jonasmsms.github.io/raiox/" class="btn">Fazer o Raio-X</a>
   </div>
+  </div>
 
   <!-- CARD 3 — Gestão de Tráfego (em breve) -->
+  <div class="card-wrap">
   <div class="card">
     <div class="card-img">
       <span class="ph-icon">🖼️</span>
@@ -220,8 +250,10 @@ body{
     <p>Eu e minha equipe cuidamos de tudo: campanhas, criativos e otimização para o seu delivery vender todos os dias.</p>
     <a href="#" class="btn">Saiba mais (em breve)</a>
   </div>
+  </div>
 
   <!-- CARD 4 — WhatsApp -->
+  <div class="card-wrap alt">
   <div class="card alt">
     <div class="card-img">
       <span class="ph-icon">🖼️</span>
@@ -231,6 +263,7 @@ body{
     <h2>Tire suas <b>dúvidas</b></h2>
     <p>Não sabe por onde começar? Me chama no WhatsApp e vamos entender juntos a melhor solução para o seu negócio.</p>
     <a href="https://wa.me/5551989991033" class="btn alt">Chamar no WhatsApp</a>
+  </div>
   </div>
 
   <div class="footer">
