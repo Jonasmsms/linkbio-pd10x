@@ -115,29 +115,52 @@ body{
   font-family:'Barlow',sans-serif;font-weight:700;
   font-size:clamp(.92rem,2.5vw,1rem);
   text-align:center;color:#fff;
-  padding:clamp(14px,3.5vw,17px) 20px;
-  border-radius:9px;border:none;cursor:pointer;
+  padding:clamp(15px,3.8vw,18px) 20px;
+  border-radius:11px;border:1px solid rgba(255,255,255,.12);
+  cursor:pointer;
   position:relative;overflow:hidden;
   text-decoration:none;
-  background:linear-gradient(270deg,var(--fire),#FF8855,var(--fire2),var(--fire));
-  background-size:300% 100%;
-  animation:gradientMove 4s ease infinite;
-  box-shadow:0 4px 24px rgba(255,85,0,.3);
+  background:
+    linear-gradient(120deg,rgba(255,255,255,.18) 0%,transparent 35%,transparent 65%,rgba(255,255,255,.1) 100%),
+    linear-gradient(270deg,var(--fire),#FFAA66,#FF3300,#FF8855,var(--fire));
+  background-size:200% 200%,300% 100%;
+  animation:smokeShift 6s ease infinite,gradientMove 4s ease infinite;
+  box-shadow:0 6px 32px rgba(255,85,0,.45),inset 0 1px 0 rgba(255,255,255,.15);
   letter-spacing:.01em;
+  backdrop-filter:blur(2px);
+}
+.btn::after{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 100% at 30% 0%,rgba(255,255,255,.25),transparent 60%);
+  pointer-events:none;
+  animation:smokeFloat 5s ease-in-out infinite;
 }
 .btn:active{transform:scale(.98)}
+
 @keyframes gradientMove{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+  0%{background-position:0% 0%,0% 50%}
+  50%{background-position:0% 0%,100% 50%}
+  100%{background-position:0% 0%,0% 50%}
+}
+@keyframes smokeShift{
+  0%{background-position:0% 0%,0% 50%}
+  50%{background-position:100% 100%,100% 50%}
+  100%{background-position:0% 0%,0% 50%}
+}
+@keyframes smokeFloat{
+  0%,100%{transform:translateX(-10%) translateY(0)}
+  50%{transform:translateX(10%) translateY(-5%)}
 }
 
 /* Variante de cor — para diferenciar ofertas */
 .btn.alt{
-  background:linear-gradient(270deg,#22c55e,#4ade80,#16a34a,#22c55e);
-  background-size:300% 100%;
-  animation:gradientMove 4s ease infinite;
-  box-shadow:0 4px 24px rgba(34,197,94,.3);
+  background:
+    linear-gradient(120deg,rgba(255,255,255,.18) 0%,transparent 35%,transparent 65%,rgba(255,255,255,.1) 100%),
+    linear-gradient(270deg,#22c55e,#86efac,#15803d,#4ade80,#22c55e);
+  background-size:200% 200%,300% 100%;
+  animation:smokeShift 6s ease infinite,gradientMove 4s ease infinite;
+  box-shadow:0 6px 32px rgba(34,197,94,.45),inset 0 1px 0 rgba(255,255,255,.15);
 }
 .card.alt .card-tag{color:#22c55e}
 .card.alt .card-tag::before{background:#22c55e;box-shadow:0 0 6px #22c55e}
